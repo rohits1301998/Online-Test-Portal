@@ -1,0 +1,54 @@
+.container{
+	text-align: center;
+}
+.form-control{
+	display: inline-block;
+	width:50%;
+	margin-right:1%;
+}
+select.form-control{
+	width:30%;
+}
+
+#options div{
+	margin-bottom: 1%;
+}
+.list{
+	margin-bottom:1%;
+	border-radius: 25px;
+}
+#main p{
+	font-family: "Times New Roman", Times, serif;
+	font-size:20px; 
+	word-wrap: break-word;
+	color:#4586FB;
+}
+#main span{
+	font-weight: bold;
+	font-size:15px; 
+}
+#main :not(button){
+	text-align:left;
+}
+.btns{
+	font-size:15px;
+	width:30%;
+	display:inline-block;
+	margin-left:2%;
+	}
+	.modal-dialog{
+		padding-top: 11%;
+	}
+
+div.modal-header{
+	background-color: #2B29A5;
+	color:white;
+}
+#ttl{
+	display: none;
+}
+
+
+
+
+

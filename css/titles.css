@@ -1,0 +1,29 @@
+html,body{
+	height:100%;
+}
+.container{
+	text-align: left;
+	height:100%;
+}
+
+.titles{
+	background-color:#4584F2;
+	height:10%;
+	padding-top:1%;
+	border-radius:6px;
+	padding-left:1%;
+	margin-bottom: 2%;
+}
+
+.titles a{
+	display:block;
+	text-decoration: none;
+	color:white;
+	height:100%;
+	font-size:30px;
+}
+
+.titles a:hover{
+	color:red;
+	font-size: 35px;
+}
