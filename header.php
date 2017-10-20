@@ -1,4 +1,10 @@
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    var no=$('#navno').val();
+    var e=$('ul li')[no];
+    e.children[0].classList.add('list-group-item','active');
+  });
+</script>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">

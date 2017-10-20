@@ -47,6 +47,6 @@
       
 
     </div>
-    
+    <input type="hidden" id="navno" value="1" />
   </body>
 </html>

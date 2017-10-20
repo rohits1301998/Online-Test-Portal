@@ -31,5 +31,6 @@ while($row=mysqli_fetch_array($forms)){
 ?>
 
   </div>
+  <input type="hidden" id="navno" value="1" />
 </body>
 </html>

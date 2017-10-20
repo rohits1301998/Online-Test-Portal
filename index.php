@@ -34,6 +34,6 @@ include('header.php');
 <?php endif; ?>
     </div>
   </div>
-
+<input type="hidden" id="navno" value="0" />
 </body>
 </html>

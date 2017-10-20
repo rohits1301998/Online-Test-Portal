@@ -20,5 +20,6 @@ include('header.php');
 
 ?>
 <p>THis website is created to generate online test for institutes and students can give the test at the same palce.So this is a all in one package</p>
+<input type="hidden" id="navno" value="2" />
 </body>
 </html>
