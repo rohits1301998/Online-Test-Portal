@@ -6,7 +6,9 @@ function getTests(professor){
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var tests=JSON.parse(this.responseText);
+                console.log(tests);
                 var parent=document.getElementById("list-test");
+                parent.innerHTML="";
                 for(var i=0;i<tests.length;i++){
                 	var option=document.createElement("option");
                 	option.setAttribute("value",tests[i][0]);

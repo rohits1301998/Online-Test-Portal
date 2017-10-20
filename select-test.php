@@ -13,6 +13,9 @@
     <?php
     include('conn.php');
     session_start();
+    if(!empty($_SESSION['exam_over'])){
+    unset($_SESSION['exam_over']);
+  }
     include('login.php');
     include('signup.php');
     include('header.php');

@@ -13,10 +13,12 @@
   <?php
   include("conn.php");
   session_start();
+  if(!empty($_SESSION['exam_over'])){
+    header('location:select-test.php');
+  }
       include('login.php');
     include('signup.php');
     include('header.php');
-
     
     ?>
   <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">

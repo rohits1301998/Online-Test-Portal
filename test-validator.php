@@ -13,14 +13,15 @@ while($row = mysqli_fetch_assoc($correct_options))
     }
 foreach($correct as $x =>$x_value)
 {
-  if(array_key_exists($x,$_SESSION))
+  if(array_key_exists($x,$_SESSION['selected-ans']))
   {
-    if($correct[$x] == $_SESSION[$x])
+    if($correct[$x] == $_SESSION['selected-ans'][$x])
       $score++;
   }
   
 }
 echo "your score is : ".$score;
-session_destroy();
+unset($_SESSION['selected-ans']);
+$_SESSION['exam_over']=1;
 
 ?>
