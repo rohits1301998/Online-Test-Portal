@@ -21,8 +21,8 @@ foreach($correct as $x =>$x_value)
 
 }
 echo "your score is : ".$score;
-unset($_SESSION['selected-ans']);
-$_SESSION['exam_over']=1;
+unset($_SESSION['selected-ans']);//unsetting selected ans after test generation
+$_SESSION['exam_over']=1;//for preventing back access after test result generation
 
 ?>
 <html>

@@ -86,7 +86,7 @@ else
 {
   header('location:show-titles.php');
 }
-unset($_SESSION['fno']);
+//unset($_SESSION['fno']);
 }
 else if(!empty($_SESSION['fno'])){
    $user=$_SESSION['user'];
