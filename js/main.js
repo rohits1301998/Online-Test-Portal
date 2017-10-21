@@ -125,7 +125,7 @@ $(document).delegate("#form1","submit",function(){
 
                 //field for question added message for future editing
                      qno=this.responseText;
-                     console.log(qno);
+                     //console.log(qno);
                      addAttributes(radio,block,qno);          
             }
         };

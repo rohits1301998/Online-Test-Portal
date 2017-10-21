@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/getTests.js"></script>
   </head>
-  <body>
+  <body onpageshow="reset();">
     <?php
     include('conn.php');
     session_start();
@@ -31,7 +31,7 @@
       <form method="get" action="give-test.php">
       <div class="form-group">
       <label>Select professor:</label>
-      <select class="form-control" name='professor' onchange="getTests(this.value)">
+      <select class="form-control" name='professor' onchange="getTests(this.value)" id="select-professor">
       <option disabled selected>Select a Professor</option>
       <?php
       while($row = mysqli_fetch_assoc($tests))
