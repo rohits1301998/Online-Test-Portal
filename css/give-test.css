@@ -1,3 +1,6 @@
+body{
+    height: 100%;
+  }
 #welcome{
   font-size: 10vw;
   text-align: center;
@@ -31,16 +34,19 @@
 #give-test-question{
 
   background-color: #cbd5db;
-  position: absolute;
+  /*position: absolute;
   top: -15%;
   bottom: 0;
   left: 0;
-  right: 0;
-  width: 97%;
-  height: 80%;
+  right: 0;*/
+  width: 98%;
+  height: 100%;
   margin: auto;
   word-break: break-all;
-  padding: 30px;
+  margin:0 1%;
+}
+#give-test-question-1{
+  padding: 3%;
 }
 #question-container{
 
@@ -51,7 +57,7 @@
 }
 #question-list{
   width: 25%;
-  height: 92vh;
+  height: 100%;
   float: right;
   background-color: #eeeeee;
   overflow: auto;
@@ -61,18 +67,42 @@
 }
 
 #paging{
-  width: 100%;
 
   position: absolute;
   bottom: 0;
-  left: 12%;
+  width: 98%;
+}
+#paging-1{
+  display: flex;
+  justify-content: space-around;
+  margin: 3%;
+
 }
 #options label{
   padding: 4px;
   font-size: 15px;
 }
 
+.previous {
+    background-color: #f1f1f1;
+    color: black;
+}
 
+.next {
+    background-color: #4CAF50;
+    color: white;
+}
+#paging-1 a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+
+}
+
+#paging-1 a:hover {
+    background-color: #ddd;
+    color: black;
+}
 .list-group-item{
   height: 10%;
   background-color: #5f5f5f;
@@ -84,9 +114,17 @@
 }
 .list-group a{
   color: white;
-  
-}
 
+}
+.pager{
+  margin: 5px auto;
+  justify-content: space-around;
+}
 #paging a{
 float:left;
-	}
+}
+.opts{
+  margin: 1%;
+  font-size: 20px;
+  display: inline-block;
+}
