@@ -19,25 +19,35 @@
       include('login.php');
     include('signup.php');
     include('header.php');
-    
+
     ?>
   <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">
 
     <div id="test-page-main">
       <div id="question-container">
         <div id="give-test-question" >
-          <p id="question-paragraph"></p>
-          <div id="options">
+          <div id="give-test-question-1">
+            <p id="question-paragraph"></p>
+            <div id="options">
 
+            </div>
           </div>
-          <div id="paging">
-            <ul class="pager">
-            <li class="previous"><a href="#" onclick="option_checked(); save(); previous()">Previous</a></li>
 
-              <a href="#" class="btn btn-success" role="button" onclick="option_checked(); save();" data-toggle="modal" data-target="#myModal">Submit</a>
-              
-            <li class="next" ><a href="#" onclick="option_checked(); save(); next();">Next</a></li>
-            </ul>
+          <div id="paging">
+            <div id="paging-1">
+              <div>
+                <a href="#" onclick="option_checked(); save(); previous()" class="previous">&laquo; Previous</a>
+              </div>
+              <div>
+                <a href="#" class="btn btn-success" role="button" onclick="option_checked(); save();" data-toggle="modal" data-target="#myModal">Submit</a>
+              </div>
+              <div>
+                <a href="#" onclick="option_checked(); save(); next();" class="next">Next &raquo;</a>
+              </div>
+
+
+            </div>
+
           </div>
 
         </div>
@@ -45,14 +55,14 @@
       </div>
       <div id="question-list">
         <div class="list-group" id="questions">
-          
+
         </div>
       </div>
     </div>
-    
+
     <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -67,7 +77,7 @@
           <a href="test-validator.php?test=<?php echo $_GET['test']?>" class="btn btn-success" role="button">Submit</a>
         </div>
       </div>
-      
+
     </div>
   </div>
 
