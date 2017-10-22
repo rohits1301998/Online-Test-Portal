@@ -22,7 +22,9 @@ if(mysqli_num_rows($result)>0){
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 </head>
 <body>';
-
+include('login.php');
+include('signup.php');
+include('header.php');
 echo '<div  class="container">
 <div id="main" >';
 
