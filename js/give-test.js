@@ -15,7 +15,7 @@ function give_test(professor,test)
         i++;
         tests=JSON.parse(this.responseText);
         document.getElementById("question-paragraph").innerHTML = "<p ><h1>"+tests[i]['question']+"</h1></p>";
-        var opt = tests[i]['options'].split(',');
+        var opt = tests[i]['options'].split('`');
         for(var j = 0;j<opt.length;j++)
           document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt[j]+"</div><br>";
 

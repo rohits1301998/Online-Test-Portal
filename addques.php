@@ -7,7 +7,7 @@ $details=json_decode($_POST['details'],false);
 $question=$details[1];
 $options=$details[2];
 for($i=3;$i<sizeof($details);$i++){
-	$options.=','.$details[$i];
+	$options.='`'.$details[$i];
 }
 $correct_option=intval($details[0]);
 $current_form_no=intval($_SESSION['fno']);
