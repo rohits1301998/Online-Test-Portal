@@ -22,15 +22,17 @@ if(mysqli_num_rows($result)>0){
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
 </head>
 <body>';
-
+include('login.php');
+include('signup.php');
+include('header.php');
 echo '<div  class="container">
 <div id="main" >';
 
 while($row=mysqli_fetch_array($result)){
 echo '<div class="alert alert-success list" id="'.$row['qno'].'">
 <a href="#" onclick="return removeOptions(this);" style="float: right;">X</a>
-<p>'.$row['question'].'</p>';
-$options=explode(",",$row['options']);
+<br/><p>'.$row['question'].'<button class="right-btn" id="update">Edit</button></p>';
+$options=explode("`",$row['options']);
 for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';
@@ -86,17 +88,17 @@ else
 {
   header('location:show-titles.php');
 }
-unset($_SESSION['fno']);
+//unset($_SESSION['fno']);
 }
 else if(!empty($_SESSION['fno'])){
    $user=$_SESSION['user'];
 	$result=mysqli_query($con,"select question,options,coption,qno from forms where  username='$user' and fnumber='".$_SESSION['fno']."' order by qno");
        if(mysqli_num_rows($result)>0){
 while($row=mysqli_fetch_array($result)){
-echo '<div class="alert alert-success list" id="'.$row['qno'].'">
+echo '<div class="alert list" id="'.$row['qno'].'">
 <a href="#" onclick="return removeOptions(this);" style="float: right;">X</a>
-<p>'.$row['question'].'</p>';
-$options=explode(",",$row['options']);
+<br/><p>'.$row['question'].'<button class="right-btn" id="update">Edit</button></p>';
+$options=explode("`",$row['options']);
 for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';

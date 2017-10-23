@@ -1,5 +1,14 @@
+body{
+	height:100%;
+	width:100%;
+	background: #23074d;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 .container{
 	text-align: center;
+
 }
 .form-control{
 	display: inline-block;
@@ -16,16 +25,18 @@ select.form-control{
 .list{
 	margin-bottom:1%;
 	border-radius: 25px;
+	background-color:#463E40 !important;
 }
 #main p{
 	font-family: "Times New Roman", Times, serif;
 	font-size:20px; 
 	word-wrap: break-word;
-	color:#4586FB;
+	color:#80A9A3;
 }
 #main span{
-	font-weight: bold;
+	font-family: 'Oswald', sans-serif;
 	font-size:15px; 
+	color:#EFB71F;
 }
 #main :not(button){
 	text-align:left;
@@ -47,7 +58,28 @@ div.modal-header{
 #ttl{
 	display: none;
 }
+.right-btn{
+	float:right;
+	overflow:auto;
+	border-radius: 2px;
+	border:1px solid #231f20;
+    transition:background-color 0.5s  ease-in-out;
+    -webkit-transition:background-color 0.5s  ease-in-out;
+    background-color:#463E40;
+    color:#f0b81f;
+    border-color: #f0b81f;
+    font-family: 'Oswald', sans-serif;
+    width:10%;
+}
 
+.right-btn:hover{
+    color:#463E40;
+	background-color:#f0b81f;
+}
+
+.list a{
+	color:#f0b81f;
+}
 
 
 

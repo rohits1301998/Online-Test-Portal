@@ -15,7 +15,7 @@ function soption(){
      newItem.classList.add("btn","btn-success","btns");
      newItem.setAttribute("onclick","return addOptions();");
      newItem.setAttribute("id","addoption");
-     document.getElementById('question').focus();
+     //document.getElementById('question').focus();
      status=1;
 }
 
@@ -68,6 +68,8 @@ function cancel(){
 	}
 	  document.getElementById('box').removeChild(document.getElementById('addoption'))
    document.getElementById('main').style.opacity="1";
+    document.getElementById('add-elem').value="Add Question";
+     document.getElementById('add-elem').removeAttribute("onclick");
    status=0;
 }
 
@@ -90,15 +92,17 @@ $(document).delegate("#form1","submit",function(){
 	var details=new Array();
 	details.push(cans);//ans index 0-indexing
 	var block=document.createElement("div");
-	block.classList.add("alert","alert-success","list");
+	block.classList.add("alert","list");
 	var close=document.createElement("a");
 	close.appendChild(document.createTextNode("X"));
 	close.style.cssFloat="right";
 	close.setAttribute("href","#");
 	close.setAttribute("onclick","return removeOptions(this);");
 	block.appendChild(close);
+	block.appendChild(document.createElement("br"));
 	var question=document.createElement("p");
 	question.innerHTML=parent.children[0].value;//question
+	question.innerHTML+="<button class='right-btn' id='update'>Edit</button>";
 	details.push(parent.children[0].value);
 	block.appendChild(question);
 	for(var i=0;i<options.childElementCount;i++)
@@ -125,6 +129,7 @@ $(document).delegate("#form1","submit",function(){
 
                 //field for question added message for future editing
                      qno=this.responseText;
+                     //console.log(qno);
                      addAttributes(radio,block,qno);          
             }
         };
@@ -179,4 +184,72 @@ for(var i=2;i<block.childElementCount;i=i+3)
 
 function showTitleBox(){
 	document.getElementById("ttl").style.display="block";
+}
+
+
+$(document).delegate("#update","click",function(){
+editQuestion(this);
+$('#myModal').modal('show');
+
+});
+
+
+
+function editQuestion(e){
+	var id=e.parentNode.parentNode.id;
+  var xmlhttp = new XMLHttpRequest();
+  var question=new Array();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+
+              question=JSON.parse(this.responseText);
+              console.log(question);
+              var coption=parseInt(question[question.length-1]);
+              document.getElementById('question').value=question[0];
+     var options=document.getElementById('options');
+     for(var i=1;i<question.length-1;i++){
+     	console.log(question[i]);
+     	if(i==coption+1){
+      options.innerHTML+='<div><input type="radio" name="mc" checked="checked"/><input type="text" class="form-control" required value="'+question[i]+'"/><button onclick="removeOptions(this);" class="btn btn-default btn-md">-</button></div>';
+     	}
+     	else
+      {options.innerHTML+='<div><input type="radio" name="mc" /><input type="text" class="form-control" required value="'+question[i]+'"/><button onclick="removeOptions(this);" class="btn btn-default btn-md">-</button></div>';
+      }
+     }
+     document.getElementById('add-elem').value="Update";
+     document.getElementById('add-elem').setAttribute("onclick","updateQuestion("+id+")");
+         var newItem = document.createElement("button");
+    var textnode = document.createTextNode("Add more options");
+    newItem.appendChild(textnode);
+     document.getElementById('box').insertBefore(newItem,document.getElementById('add-elem'));
+     newItem.classList.add("btn","btn-success","btns");
+     newItem.setAttribute("onclick","return addOptions();");
+     newItem.setAttribute("id","addoption");
+
+
+              
+            }
+        };
+        xmlhttp.open("GET","get-ques.php?id="+id, true);
+
+        xmlhttp.send();
+     
+}
+
+
+
+function updateQuestion(id){
+var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log(this.responseText);
+              document.getElementById('main').removeChild(document.getElementById(id));
+              
+            }
+        };
+        xmlhttp.open("GET","update-ques.php?id="+id, true);
+
+        xmlhttp.send();
+        
+
 }

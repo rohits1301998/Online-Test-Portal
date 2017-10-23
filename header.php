@@ -1,5 +1,8 @@
 <script type="text/javascript">
   $(document).ready(function(){
+    if($('#navno').length==0){
+      return;
+    }
     var no=$('#navno').val();
     var e=$('ul li')[no];
     e.children[0].classList.add('list-group-item','active');

@@ -1,4 +1,7 @@
-
+ function reset(event) {
+ //console.log("lol");
+        document.getElementById('select-professor').selectedIndex=0;
+}
 
 function getTests(professor){
 	//alert(professor);
