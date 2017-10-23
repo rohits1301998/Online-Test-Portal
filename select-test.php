@@ -13,6 +13,7 @@
     <?php
     include('conn.php');
     session_start();
+    
     if(!empty($_SESSION['exam_over'])){
     unset($_SESSION['exam_over']);
   }

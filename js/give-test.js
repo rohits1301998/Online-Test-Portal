@@ -3,8 +3,8 @@ var tests = [];
 var i =-1;
 var qid;
 var option_selected;
-var current_question = 1;
-var last_question = 1;
+var current_question = 0;
+var last_question = 0;
 function give_test(professor,test)
 {
   var xmlhttp = new XMLHttpRequest();
@@ -14,15 +14,18 @@ function give_test(professor,test)
         {
         i++;
         tests=JSON.parse(this.responseText);
+        console.log(tests);
         document.getElementById("question-paragraph").innerHTML = "<p ><h1>"+tests[i]['question']+"</h1></p>";
         var opt = tests[i]['options'].split('`');
         for(var j = 0;j<opt.length;j++)
           document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt[j]+"</div><br>";
 
         for (var k = 0; k < tests.length; k++) {
-          document.getElementById("questions").innerHTML += "<a href='#' class='list-group-item' id=question"+tests[k]['qno']+" onclick=' question_list("+k+"); '>"+(k+1)+".  "+tests[k]['question']+"</a> "
+          document.getElementById("questions").innerHTML += "<a href='#' class='list-group-item' id='question"+tests[k]['qno']+"' onclick='question_list("+tests[k]['qno']+","+k+");'>"+(k+1)+".  "+tests[k]['question']+"</a> "
         }
-
+        current_question=parseInt(tests[0]['qno']);
+        last_question=parseInt(tests[0]['qno']);
+        //console.log('question'+current_question);
         document.getElementById('question'+current_question).style.backgroundColor="White";
         document.getElementById('question'+current_question).style.color="black";
       }
@@ -48,9 +51,9 @@ function next()
 
 
             i++;
-            current_question =i+1;
+            current_question =parseInt(tests[i]['qno']);
             document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
-            var opt1 = tests[i]['options'].split(',');
+            var opt1 = tests[i]['options'].split('`');
             document.getElementById("options").innerHTML = "";
             for(var j = 0;j<opt1.length;j++)
             document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class ='opts'>"+opt1[j]+"</div><br/>";
@@ -86,9 +89,9 @@ function previous()
         else
           {
           i--;
-          current_question = i+1;
+          current_question = parseInt(tests[i]['qno']);
           document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
-          var opt2 = tests[i]['options'].split(',');
+          var opt2 = tests[i]['options'].split('`');
           document.getElementById("options").innerHTML = "";
           for(var j = 0;j<opt2.length;j++)
             document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt2[j]+"</div><br/>";
@@ -134,7 +137,7 @@ function check_option(){
             console.log("checked");
             console.log(selected["q"+tests[i]['qno']]);
 
-            document.getElementById(selected["q"+tests[i]['qno']]).checked = true;
+            document.getElementById(selected["q"+tests[i]['qno']]).checked=true;
           }
         }
 
@@ -189,13 +192,13 @@ function save()
 
 
 
-function question_list(index){
+function question_list(index,pos){
           option_checked();
           save();
-          i = index;
-          current_question = i+1;
+          i = pos;
+          current_question = parseInt(index);
           document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
-          var opt2 = tests[i]['options'].split(',');
+          var opt2 = tests[i]['options'].split('`');
           document.getElementById("options").innerHTML = "";
           for(var j = 0;j<opt2.length;j++)
             document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt2[j]+"</div><br/>";

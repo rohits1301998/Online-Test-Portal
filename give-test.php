@@ -16,18 +16,22 @@
       }
     </style>
   </head>
-  <?php
+  
+  <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">
+<?php
   include("conn.php");
   session_start();
   if(!empty($_SESSION['exam_over'])){
     header('location:select-test.php');
   }
+  else{
+    $_SESSION['exam_over']=0;
+  }
+  
      
     include('header.php');
 
     ?>
-  <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">
-
     <div id="test-page-main">
       <div id="question-container">
         <div id="give-test-question" >
