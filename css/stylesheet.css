@@ -1,9 +1,9 @@
 body{
 	height:100%;
 	width:100%;
-	background: #23074d;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #d9a7c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .container{
@@ -65,11 +65,11 @@ div.modal-header{
 	border:1px solid #231f20;
     transition:background-color 0.5s  ease-in-out;
     -webkit-transition:background-color 0.5s  ease-in-out;
-    background-color:#463E40;
-    color:#f0b81f;
+    background-color:#463E40;/*brownish color*/
+    color:#f0b81f;/*yellow color*/
     border-color: #f0b81f;
     font-family: 'Oswald', sans-serif;
-    width:10%;
+    font-size: 2vh;
 }
 
 .right-btn:hover{
@@ -81,6 +81,17 @@ div.modal-header{
 	color:#f0b81f;
 }
 
+#saved{
+	display:inline-block;
+	position:fixed;
+	left:45%;
+	width:10%;
+	height:2%;
+	background-color: #EC685B;
+	color:white;
+	border-radius:3px;
+	display:none;
+}
 
 
 

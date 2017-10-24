@@ -28,6 +28,7 @@ include('header.php');
 
 ?>
 <div  class="container">
+<span id="saved"></span>
 <div id="main" >
 
 </div>

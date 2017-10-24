@@ -26,6 +26,7 @@ include('login.php');
 include('signup.php');
 include('header.php');
 echo '<div  class="container">
+<span id="saved"></span>
 <div id="main" >';
 
 while($row=mysqli_fetch_array($result)){
@@ -37,7 +38,7 @@ for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';
 else
-echo '<input type="radio" name="anslist'.$row['qno'].'" />';
+echo '<input type="radio" name="anslist'.$row['qno'].'" disabled/>';
 echo '<span>'.$options[$i].'</span>
 <br/>';
 }
@@ -103,7 +104,7 @@ for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';
 else
-echo '<input type="radio" name="anslist'.$row['qno'].'" />';
+echo '<input type="radio" name="anslist'.$row['qno'].'" disabled />';
 echo '<span>'.$options[$i].'</span>
 <br/>';
 }

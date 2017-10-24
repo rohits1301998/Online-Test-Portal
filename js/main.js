@@ -116,11 +116,14 @@ $(document).delegate("#form1","submit",function(){
 			block.appendChild(radio);
 			block.appendChild(option);
 			block.appendChild(document.createElement("br"));
-			if(i==cans)
+			if(i==cans){
 				radio.setAttribute("checked","checked");
-
-
+      }
+      else{
+      radio.setAttribute("disabled","disabled");
+    }
 		}
+
 		//ajax call for saving to database
 		var qno;
        var xmlhttp = new XMLHttpRequest();
@@ -141,7 +144,12 @@ $(document).delegate("#form1","submit",function(){
 
 	ogparent.appendChild(block);
 	cancel();
+
 	$('#myModal').modal('hide');
+  $('#saved').text("Changes Saved");
+  $('#saved').fadeIn();
+  $('#saved').fadeOut(4000);
+
 	 return false;
 });
 

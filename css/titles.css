@@ -1,5 +1,6 @@
 html,body{
 	height:100%;
+	width:100%;
 }
 .container{
 	text-align: left;
@@ -7,12 +8,14 @@ html,body{
 }
 
 .titles{
-	background-color:#4584F2;
-	height:10%;
+	background-color:#463E40;
+	height:5%;
 	padding-top:1%;
 	border-radius:6px;
 	padding-left:1%;
 	margin-bottom: 2%;
+	-webkit-transition:background-color 0.8s ease-out;
+ transition:background-color 0.8s ease-out;
 }
 
 .titles a{
@@ -20,10 +23,10 @@ html,body{
 	text-decoration: none;
 	color:white;
 	height:100%;
-	font-size:30px;
+	font-size:2vh;
+
 }
 
-.titles a:hover{
-	color:red;
-	font-size: 35px;
+.titles:hover{
+background-color:#f0b81f;
 }
