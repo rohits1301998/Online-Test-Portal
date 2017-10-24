@@ -17,6 +17,7 @@
     
     if(!empty($_SESSION['exam_over'])){
     unset($_SESSION['exam_over']);
+    unset($_SESSION['selected-ans']);
   }
     include('login.php');
     include('signup.php');
