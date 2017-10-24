@@ -144,7 +144,12 @@ $(document).delegate("#form1","submit",function(){
 
 	ogparent.appendChild(block);
 	cancel();
+
 	$('#myModal').modal('hide');
+  $('#saved').text("Changes Saved");
+  $('#saved').fadeIn();
+  $('#saved').fadeOut(4000);
+
 	 return false;
 });
 

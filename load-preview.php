@@ -26,6 +26,7 @@ include('login.php');
 include('signup.php');
 include('header.php');
 echo '<div  class="container">
+<span id="saved"></span>
 <div id="main" >';
 
 while($row=mysqli_fetch_array($result)){

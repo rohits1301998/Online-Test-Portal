@@ -81,7 +81,17 @@ div.modal-header{
 	color:#f0b81f;
 }
 
-
+#saved{
+	display:inline-block;
+	position:fixed;
+	left:45%;
+	width:10%;
+	height:2%;
+	background-color: #EC685B;
+	color:white;
+	border-radius:3px;
+	display:none;
+}
 
 
 
