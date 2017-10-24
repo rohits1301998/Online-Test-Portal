@@ -1,8 +1,10 @@
 body{
     height: 100%;
+  width:100%;
+  
   }
 #welcome{
-  font-size: 10vw;
+  color:#f0b81f;
   text-align: center;
 }
 #welcome-box{
@@ -17,14 +19,15 @@ body{
 
 }
 #welcome-box button{
-  background-color: #222222;
-  color: gray;
   margin:3%;
   width: 90%;
+  background-color:#463E40;
+  color:#f0b81f;
+  border:1px solid #f0b81f;
 }
 #welcome-box button:hover{
-  color: white;
-  background-color: black;
+  color: #463E40;
+  background-color: #f0b81f;
 }
 #test-page-main{
   margin: 0;
@@ -128,3 +131,10 @@ float:left;
   font-size: 20px;
   display: inline-block;
 }
+
+th,tr{
+  color:#f0b81f;
+  text-align: center;
+}
+
+
