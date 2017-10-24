@@ -13,21 +13,21 @@
     <?php
     include('conn.php');
     session_start();
-    
+
     if(!empty($_SESSION['exam_over'])){
     unset($_SESSION['exam_over']);
   }
     include('login.php');
     include('signup.php');
     include('header.php');
-    
-    
+
+
     ?>
     <?php
     $tests=mysqli_query($con,"select username from utcet");
-    
+
     ?>
-    
+
     <div id="pick-test">
       <form method="get" action="give-test.php">
       <div class="form-group">
@@ -40,15 +40,15 @@
       ?>
 
       </select>
-      
+
       <label>Select test:</label>
       <select class="form-control" name='test' id="list-test"><!--test is form no. of that professor -->
-     
+
       </select>
-      </div>
+    </div>
       <button type="submit" class="btn btns">Give Test</button>
       </form>
-      
+
 
     </div>
     <input type="hidden" id="navno" value="1" />

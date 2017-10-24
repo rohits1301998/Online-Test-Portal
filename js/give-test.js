@@ -14,6 +14,7 @@ function give_test(professor,test)
         {
         i++;
         tests=JSON.parse(this.responseText);
+
         console.log(tests);
         document.getElementById("question-paragraph").innerHTML = "<p ><h1>"+tests[i]['question']+"</h1></p>";
         var opt = tests[i]['options'].split('`');
@@ -31,7 +32,7 @@ function give_test(professor,test)
       }
 
     };
-  xmlhttp.open("GET","giveTest.php?test="+test, true);
+  xmlhttp.open("GET",'giveTest.php?prof='+professor+'&test='+test, true);
   xmlhttp.send();
 }
 
