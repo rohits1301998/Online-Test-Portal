@@ -37,7 +37,7 @@ for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';
 else
-echo '<input type="radio" name="anslist'.$row['qno'].'" />';
+echo '<input type="radio" name="anslist'.$row['qno'].'" disabled/>';
 echo '<span>'.$options[$i].'</span>
 <br/>';
 }
@@ -103,7 +103,7 @@ for($i=0;$i<sizeof($options);$i++){
 	if($i===intval($row['coption']))
 echo '<input type="radio" name="anslist'.$row['qno'].'" checked="checked" />';
 else
-echo '<input type="radio" name="anslist'.$row['qno'].'" />';
+echo '<input type="radio" name="anslist'.$row['qno'].'" disabled />';
 echo '<span>'.$options[$i].'</span>
 <br/>';
 }
