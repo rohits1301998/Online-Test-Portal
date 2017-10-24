@@ -30,7 +30,7 @@ echo '<div  class="container">
 <div id="main" >';
 
 while($row=mysqli_fetch_array($result)){
-echo '<div class="alert alert-success list" id="'.$row['qno'].'">
+echo '<div class="alert list" id="'.$row['qno'].'">
 <a href="#" onclick="return removeOptions(this);" style="float: right;">X</a>
 <br/><p>'.$row['question'].'<button class="right-btn" id="update">Edit</button></p>';
 $options=explode("`",$row['options']);

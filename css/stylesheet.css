@@ -1,9 +1,9 @@
 body{
 	height:100%;
 	width:100%;
-	background: #d9a7c7;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .container{
@@ -26,6 +26,7 @@ select.form-control{
 	margin-bottom:1%;
 	border-radius: 25px;
 	background-color:#463E40 !important;
+	border:1px solid #f0b81f;
 }
 #main p{
 	font-family: "Times New Roman", Times, serif;
@@ -91,6 +92,11 @@ div.modal-header{
 	color:white;
 	border-radius:3px;
 	display:none;
+}
+
+.active{
+	background-color: #f0b81f !important;
+
 }
 
 
