@@ -83,6 +83,11 @@ foreach($correct as $x =>$x_value)
         Wrong Answer's : <?php echo sizeof($marks)-$score; ?>
       </td>
     </tr>
+    <tr>
+      <td>
+        Total marks : <?php echo $score; ?>
+      </td>
+    </tr>
   </table>
 </div>
 </body>
