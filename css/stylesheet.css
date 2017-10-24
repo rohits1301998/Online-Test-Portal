@@ -1,9 +1,9 @@
 body{
 	height:100%;
 	width:100%;
-	background: #23074d;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #cc5333, #23074d);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #cc5333, #23074d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #d9a7c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 .container{
@@ -69,7 +69,7 @@ div.modal-header{
     color:#f0b81f;/*yellow color*/
     border-color: #f0b81f;
     font-family: 'Oswald', sans-serif;
-    font-size: 2vw;
+    font-size: 2vh;
 }
 
 .right-btn:hover{
