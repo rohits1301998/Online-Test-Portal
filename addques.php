@@ -14,9 +14,12 @@ $current_form_no=intval($_SESSION['fno']);
 $result=mysqli_query($con,"select maxid from form_max where username='$user' and fnumber='$current_form_no'");
 if(mysqli_num_rows($result)==0){//if no questions are added i.e 1st question is created
 	$result=mysqli_query($con,"insert into form_max values('$user',$current_form_no,0)");
+	$qno=1;
 }
+else{
 $row=mysqli_fetch_array($result);
 $qno=intval($row['maxid'])+1;//next question number
+}
 $update=mysqli_query($con,"update form_max set maxid=maxid+1 where username='$user' and fnumber='$current_form_no'");
 $result=mysqli_query($con,"insert into forms values('$user',$current_form_no,'$question','$options',$correct_option,$qno)");
 if($result)

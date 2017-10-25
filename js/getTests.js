@@ -12,7 +12,7 @@ function getTests(professor){
                 var tests=JSON.parse(this.responseText);
                 console.log(tests);
                 var parent=document.getElementById("list-test");
-                parent.innerHTML="<option disabled selected>Select Test</option>";
+                parent.innerHTML="<option disabled selected value='0'>Select Test</option>";
                 for(var i=0;i<tests.length;i++){
                 	var option=document.createElement("option");
                 	option.setAttribute("value",tests[i][0]);
@@ -27,4 +27,17 @@ function getTests(professor){
         };
         xmlhttp.open("GET","get-test.php?name="+professor, true);
         xmlhttp.send();
+}
+
+
+function getDetails(fno){
+ var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+             document.getElementById("test-table").innerHTML=this.responseText;                
+
+            }
+        };
+        xmlhttp.open("GET","get-students.php?fno="+fno, true);
+        xmlhttp.send();   
 }

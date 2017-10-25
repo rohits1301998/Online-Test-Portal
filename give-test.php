@@ -10,13 +10,21 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="js/give-test.js"></script>
     <style type="text/css">
-      
+
       .navbar-right{
         display:none;
       }
     </style>
+    <?php
+if(empty($_GET['professor'])||empty($_GET['test'])||empty($_GET['join'])||empty($_GET['divison'])||empty($_GET['roll_no'])||empty($_GET['pass'])){
+  echo "<script type='text/javascript'>
+  alert('Please enter all details');
+  window.location.href='select-test.php';
+</script>";
+}
+?>
   </head>
-  
+
   <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">
 <?php
   include("conn.php");
@@ -27,9 +35,10 @@
   else{
     $_SESSION['exam_over']=0;
   }
-  
-     
+
+
     include('header.php');
+    $_SESSION['uid1'] = $_GET['join']."-".$_GET['department'].$_GET['divison'].$_GET['roll_no']."-".$_GET['pass'];
 
     ?>
     <div id="test-page-main">
@@ -83,7 +92,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <a href="test-validator.php?test=<?php echo $_GET['test']?>" class="btn btn-success" role="button">Submit</a>
+          <a href='test-validator.php?prof=<?php echo $_GET["professor"] ?>&test=<?php echo $_GET["test"]?>' class="btn btn-success" role="button">Submit</a>
         </div>
       </div>
 
