@@ -9,35 +9,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/give-test.css">
+    <script type="text/javascript" src="js/getTests.js"></script>
     
 </head>
-<body>
+<?php session_start();  ?>
+<body <?php if(!empty($_SESSION['user'])){echo "onload=getTests('".$_SESSION['user']."');";}?>>
 <?php
 include('conn.php');
-session_start();
+
 include('login.php');
 include('signup.php');
 include('header.php');
 
 ?>
-<div  class="container">
+<div  class="container" >
    <h1 id="welcome">Welcome!<?php if(!empty($_SESSION['user'])){echo $_SESSION['user'];}else{echo "guest";}   ?></h1>
     <?php
-    if(!empty($_SESSION['user'])):
-    $result=mysqli_query($con,"select fnumber,title from gen_forms where username='".$_SESSION['user']."' order by fnumber");
-     
-    ?>
-    <table class="table  table-hover">
-        <thead><th>Test No.</th>
-        <th>Test Title</th>
-        <th>Best Performer(UID)</th>
-        </thead>
-        <?php while($row=mysqli_fetch_array($result)){
-            echo "<tr><td>".$row['fnumber']."</td><td>".$row['title']."</td><td>random</td></tr>";           
-            }    
-            ?>
-    </table>
+    if(!empty($_SESSION['user'])): ?>
+    <!--  $result=mysqli_query($con,"select fnumber,title from gen_forms where username='".$_SESSION['user']."' order by fnumber"); -->
+<select id='list-test' class="form-control" onchange="getDetails(this.value);">
+    
+       </select>
 <?php endif;  ?>
+
+<table class="table  table-hover" id="test-table">
+      
+    </table>
   
   <div id="welcome-box">
    

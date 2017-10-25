@@ -1,7 +1,7 @@
 <?php
 session_start();
     include("conn.php");
-    session_unset();
+    //session_unset();
     $query = "select fnumber,question,options,qno from forms where fnumber=".$_GET['test']." order by qno";
     $questions = mysqli_query($con,$query);
     $question = array();

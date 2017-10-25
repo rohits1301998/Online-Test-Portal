@@ -5,13 +5,14 @@
 
 function getTests(professor){
 	//alert(professor);
+    console.log(professor);
 	var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var tests=JSON.parse(this.responseText);
                 console.log(tests);
                 var parent=document.getElementById("list-test");
-                parent.innerHTML="";
+                parent.innerHTML="<option disabled selected>Select Test</option>";
                 for(var i=0;i<tests.length;i++){
                 	var option=document.createElement("option");
                 	option.setAttribute("value",tests[i][0]);
