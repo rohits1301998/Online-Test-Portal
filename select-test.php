@@ -32,6 +32,53 @@
 
     <div id="pick-test">
       <form method="get" action="give-test.php">
+        <div class="form-group col-md-2">
+        <label for="join">joining Year</label>
+        <select id="join" class="form-control" name="join">
+          <option disabled selected>Choose...</option>
+          <?php for ($i=04; $i <=17 ; $i++) {
+            echo "<option value=".$i.">".$i."</option>";
+          } ?>
+        </select>
+        </div>
+        <div class="form-group col-md-3">
+        <label for="department">Department</label>
+        <select id="department" class="form-control" name="department">
+          <option disabled selected>Choose...</option>
+          <option value="cmpn">CMPN</option>
+          <option value="it">IT</option>
+          <option value="etrx">ETRX</option>
+          <option value="extc">EXTC</option>
+        </select>
+        </div>
+        <div class="form-group col-md-2">
+        <label for="divison">Divison</label>
+        <select id="divison" class="form-control" name="divison">
+          <option disabled selected>Choose...</option>
+          <option value="a">A</option>
+          <option value="b">B</option>
+        </select>
+        </div>
+        <div class="form-group col-md-2">
+        <label for="roll_no">Roll no.</label>
+        <select id="roll_no" class="form-control" name="roll_no">
+          <option disabled selected>Choose...</option>
+          <?php
+          for ($i=1; $i < 91; $i++) {
+          echo  "<option value=".$i.">".$i."</option>";
+          }
+          ?>
+        </select>
+        </div>
+        <div class="form-group col-md-2">
+        <label for="pass">Passing year</label>
+        <select id="pass" class="form-control" name="pass" >
+          <option disabled selected>Choose...</option>
+          <?php for ($i=04; $i <=21 ; $i++) {
+            echo "<option value=".$i.">".$i."</option>";
+          } ?>
+        </select>
+        </div>
       <div class="form-group">
       <label>Select professor:</label>
       <select class="form-control" name='professor' onchange="getTests(this.value)" id="select-professor">
