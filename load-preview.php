@@ -1,7 +1,7 @@
 
 <?php
-include("conn.php");
 session_start();
+include("conn.php");
 
 
 if(!empty($_GET['formn'])){

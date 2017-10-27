@@ -1,6 +1,6 @@
 <?php
-include('conn.php');
 session_start();
+include('conn.php');
 $user=$_SESSION['user'];
 $result=mysqli_query($con,"select nform from utcet where username='$user'");
 $row=mysqli_fetch_array($result);

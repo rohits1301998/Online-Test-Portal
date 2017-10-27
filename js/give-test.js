@@ -7,11 +7,15 @@ var current_question = 0;
 var last_question = 0;
 function give_test(professor,test)
 {
+  document.getElementById("give-test-question-1").style.display="none";
+  document.getElementById("loading").style.display="block";
   var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function()
       {
       if (this.readyState == 4 && this.status == 200)
         {
+          document.getElementById("loading").style.display="none";
+          document.getElementById("give-test-question-1").style.display="block";
         i++;
         tests=JSON.parse(this.responseText);
 
@@ -49,8 +53,9 @@ function next()
           return;
       }
 
-
-
+           document.getElementById("give-test-question-1").style.display="none";
+               document.getElementById("loading").style.display="block";
+     
             i++;
             current_question =parseInt(tests[i]['qno']);
             document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
@@ -89,6 +94,8 @@ function previous()
           alert('first question');
         else
           {
+            document.getElementById("give-test-question-1").style.display="none";
+            document.getElementById("loading").style.display="block";
           i--;
           current_question = parseInt(tests[i]['qno']);
           document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
@@ -131,6 +138,8 @@ function check_option(){
         if (this.readyState == 4 && this.status==200)
         {
           console.log(this.responseText);
+            document.getElementById("loading").style.display="none";
+          document.getElementById("give-test-question-1").style.display="block";
           var selected = JSON.parse(this.responseText);
 
 
@@ -194,6 +203,8 @@ function save()
 
 
 function question_list(index,pos){
+  document.getElementById("give-test-question-1").style.display="none";
+            document.getElementById("loading").style.display="block";
           option_checked();
           save();
           i = pos;

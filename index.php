@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +15,7 @@
     <script type="text/javascript" src="js/getTests.js"></script>
     
 </head>
-<?php session_start();  ?>
+
 <body <?php if(!empty($_SESSION['user'])){echo "onload=getTests('".$_SESSION['user']."');";}?>>
 <?php
 include('conn.php');

@@ -1,3 +1,4 @@
+<?php session_start();   ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 <body>
 <?php
 include('conn.php');
-session_start();
+
 include('login.php');
 include('signup.php');
 include('header.php');

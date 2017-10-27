@@ -1,3 +1,21 @@
+<?php
+session_start();
+  include("conn.php");
+  
+  if(!empty($_SESSION['exam_over'])){
+    header('location:select-test.php');
+  }
+  else{
+    $_SESSION['exam_over']=0;
+  }
+    
+if(empty($_GET['professor'])||empty($_GET['test'])||empty($_GET['join'])||empty($_GET['divison'])||empty($_GET['roll_no'])||empty($_GET['pass'])){
+  echo "<script type='text/javascript'>
+  alert('Please enter all details');
+  window.location.href='select-test.php';
+</script>";
+}
+?>
 
 <!DOCTYPE html>
 <html>
@@ -15,27 +33,12 @@
         display:none;
       }
     </style>
-    <?php
-if(empty($_GET['professor'])||empty($_GET['test'])||empty($_GET['join'])||empty($_GET['divison'])||empty($_GET['roll_no'])||empty($_GET['pass'])){
-  echo "<script type='text/javascript'>
-  alert('Please enter all details');
-  window.location.href='select-test.php';
-</script>";
-}
-?>
+    
   </head>
 
   <body onload="give_test('<?php echo $_GET['professor']?>','<?php echo $_GET['test']?>')">
-<?php
-  include("conn.php");
-  session_start();
-  if(!empty($_SESSION['exam_over'])){
-    header('location:select-test.php');
-  }
-  else{
-    $_SESSION['exam_over']=0;
-  }
 
+<?php
 
     include('header.php');
     $_SESSION['uid1'] = $_GET['join']."-".$_GET['department'].$_GET['divison'].$_GET['roll_no']."-".$_GET['pass'];
@@ -44,6 +47,14 @@ if(empty($_GET['professor'])||empty($_GET['test'])||empty($_GET['join'])||empty(
     <div id="test-page-main">
       <div id="question-container">
         <div id="give-test-question" >
+        <div class="bubblingG" id="loading">
+  <span id="bubblingG_1">
+  </span>
+  <span id="bubblingG_2">
+  </span>
+  <span id="bubblingG_3">
+  </span>
+   </div>
           <div id="give-test-question-1">
             <p id="question-paragraph"></p>
             <div id="options">

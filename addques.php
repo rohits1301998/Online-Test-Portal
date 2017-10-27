@@ -1,6 +1,6 @@
 <?php  
-include("conn.php");
 session_start();
+include("conn.php");
 $user=$_SESSION['user'];
 if(!empty($_POST['details'])){
 $details=json_decode($_POST['details'],false);

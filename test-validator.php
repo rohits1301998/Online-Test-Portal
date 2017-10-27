@@ -1,7 +1,6 @@
-
-
 <?php
 session_start();
+if(!empty($_GET['prof'])&&!empty($_GET['test'])){
 include("conn.php");
 $query = 'select qno,coption from forms where username="'.$_GET["prof"].'" AND fnumber='.$_GET['test'];
 $test_title = 'select title from gen_forms where username="'.$_GET["prof"].'" AND fnumber='.$_GET["test"];
@@ -42,5 +41,9 @@ mysqli_query($con,$into_database);
 unset($_SESSION['selected-ans']);
 $_SESSION['exam_over']=1;
 
-header('location:report.php?uid='.$uid1.'&prof='.$_GET['prof'].'&test='.$_GET['test']);
+header('location:report.php?uid='.$uid1.'&prof='.$_GET['prof'].'&test='.$_GET['test']);}
+else{
+    unset($_SESSION['selected-ans']);
+    header('location:select-test.php');
+}
 ?>
