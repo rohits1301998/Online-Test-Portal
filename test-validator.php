@@ -3,9 +3,9 @@ session_start();
 if(!empty($_GET['prof'])&&!empty($_GET['test'])){
 include("conn.php");
 $query = 'select qno,coption from forms where username="'.$_GET["prof"].'" AND fnumber='.$_GET['test'];
-$test_title = 'select title from gen_forms where username="'.$_GET["prof"].'" AND fnumber='.$_GET["test"];
+
 $correct_options = mysqli_query($con,$query);
-$test = mysqli_query($con,$test_title);
+
 $uid1= $_SESSION['uid1'];
 $correct=array();
 $professor=$_GET["prof"];

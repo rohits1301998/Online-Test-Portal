@@ -39,7 +39,7 @@ session_start();
         <label for="join">joining Year</label>
         <select required id="join" class="form-control" name="join">
           <option disabled selected value="0">Choose...</option>
-          <?php for ($i=4; $i <=17 ; $i++) {
+          <?php for ($i=2001; $i <=date("Y") ; $i++) {
             echo "<option value=".$i.">".$i."</option>";
           } ?>
         </select>
@@ -77,7 +77,7 @@ session_start();
         <label for="pass">Passing year</label>
         <select required id="pass" class="form-control" name="pass" >
           <option disabled selected value="0">Choose...</option>
-          <?php for ($i=4; $i <=21 ; $i++) {
+          <?php for ($i=2004; $i <=date("Y")+4 ; $i++) {
             echo "<option value=".$i.">".$i."</option>";
           } ?>
         </select>
