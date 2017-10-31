@@ -92,11 +92,20 @@ session_start();
       ?>
 
       </select>
-
+           <div class="bubblingG" id="loading">
+  <span id="bubblingG_1">
+  </span>
+  <span id="bubblingG_2">
+  </span>
+  <span id="bubblingG_3">
+  </span>
+   </div>
+      <div id="select_test">
       <label>Select test:</label>
       <select required class="form-control" name='test' id="list-test"><!--test is form no. of that professor -->
 
       </select>
+      </div>
     </div>
       <button type="submit" class="btn btns">Give Test</button>
       </form>

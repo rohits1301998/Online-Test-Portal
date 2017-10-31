@@ -21,7 +21,7 @@ if(!empty($_POST['username'])&&!empty($_POST['pwd'])){
     $hash=$row['pass'];
     if (password_verify($_POST['pwd'],$hash)) {
     $_SESSION['user']=$_POST['username'];
-    header('location:'.$_SERVER['REQUEST_URI']);
+    echo "<script>window.location.href='index.php';</script>;";
 }
 else {
     echo '<script>alert("Password is invalid!");</script>';

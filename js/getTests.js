@@ -5,12 +5,20 @@
 
 function getTests(professor){
 	//alert(professor);
-    console.log(professor);
+    //console.log(professor);
+    if(document.getElementById("select_test")!=null){
+document.getElementById("select_test").style.display="none";
+}
+  document.getElementById("loading").style.display="block";
 	var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var tests=JSON.parse(this.responseText);
-                console.log(tests);
+                if(document.getElementById("select_test")!=null){
+                 document.getElementById("select_test").style.display="block";
+                }
+             document.getElementById("loading").style.display="none";
+                //console.log(tests);
                 var parent=document.getElementById("list-test");
                 parent.innerHTML="<option disabled selected value='0'>Select Test</option>";
                 for(var i=0;i<tests.length;i++){
@@ -31,9 +39,13 @@ function getTests(professor){
 
 
 function getDetails(fno){
+     document.getElementById("test-table").style.display="none";
+  document.getElementById("loading").style.display="block";
  var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("test-table").style.display="block";
+  document.getElementById("loading").style.display="none";
              document.getElementById("test-table").innerHTML=this.responseText;                
 
             }

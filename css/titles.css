@@ -47,3 +47,7 @@ background-color:#f0b81f;
 	background-color: #f0b81f !important;
 
 }
+
+a[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]{
+	display:none;
+}

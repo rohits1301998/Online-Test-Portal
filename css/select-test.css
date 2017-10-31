@@ -9,3 +9,11 @@
 label{
   color: #f0b81f;
 }
+
+#select_test{
+	display:none;
+}
+
+a[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]{
+	display:none;
+}
