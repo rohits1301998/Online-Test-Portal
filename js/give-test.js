@@ -20,13 +20,13 @@ function give_test(professor,test)
         tests=JSON.parse(this.responseText);
 
         console.log(tests);
-        document.getElementById("question-paragraph").innerHTML = "<p ><h1>"+tests[i]['question']+"</h1></p>";
+        document.getElementById("question-paragraph").innerHTML = "<p>"+tests[i]['question']+"</p>";
         var opt = tests[i]['options'].split('`');
         for(var j = 0;j<opt.length;j++)
-          document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt[j]+"</div><br>";
+          document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><label class='opts' for='"+j+"'>"+opt[j]+"</label><br>";
 
         for (var k = 0; k < tests.length; k++) {
-          document.getElementById("questions").innerHTML += "<a href='#' class='list-group-item' id='question"+tests[k]['qno']+"' onclick='question_list("+tests[k]['qno']+","+k+");'>"+(k+1)+".  "+tests[k]['question']+"</a> "
+          document.getElementById("questions").innerHTML += "<button class='btn list-group-item' id='question"+tests[k]['qno']+"' onclick='question_list("+tests[k]['qno']+","+k+");'>"+(k+1)+".  "+tests[k]['question']+"</button>";
         }
         current_question=parseInt(tests[0]['qno']);
         last_question=parseInt(tests[0]['qno']);
@@ -58,11 +58,11 @@ function next()
      
             i++;
             current_question =parseInt(tests[i]['qno']);
-            document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
+            document.getElementById("question-paragraph").innerHTML = "<p>"+tests[i]['question']+"</p>";
             var opt1 = tests[i]['options'].split('`');
             document.getElementById("options").innerHTML = "";
             for(var j = 0;j<opt1.length;j++)
-            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class ='opts'>"+opt1[j]+"</div><br/>";
+            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><label class='opts'  for='"+j+"'>"+opt1[j]+"</label><br/>";
 
             document.getElementById('question'+last_question).style.backgroundColor="#5f5f5f";
             document.getElementById('question'+last_question).style.color="white";
@@ -98,11 +98,11 @@ function previous()
             document.getElementById("loading").style.display="block";
           i--;
           current_question = parseInt(tests[i]['qno']);
-          document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
+          document.getElementById("question-paragraph").innerHTML = "<p>"+tests[i]['question']+"</p>";
           var opt2 = tests[i]['options'].split('`');
           document.getElementById("options").innerHTML = "";
           for(var j = 0;j<opt2.length;j++)
-            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt2[j]+"</div><br/>";
+            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><label class='opts'  for='"+j+"'>"+opt2[j]+"</label><br/>";
 
 
             document.getElementById('question'+last_question).style.backgroundColor="#5f5f5f";
@@ -209,11 +209,11 @@ function question_list(index,pos){
           save();
           i = pos;
           current_question = parseInt(index);
-          document.getElementById("question-paragraph").innerHTML = "<p><h1>"+tests[i]['question']+"</h1></p>";
+          document.getElementById("question-paragraph").innerHTML = "<p>"+tests[i]['question']+"</p>";
           var opt2 = tests[i]['options'].split('`');
           document.getElementById("options").innerHTML = "";
           for(var j = 0;j<opt2.length;j++)
-            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><div class='opts'>"+opt2[j]+"</div><br/>";
+            document.getElementById("options").innerHTML += "<input type='radio' name='option' id="+j+" value="+j+" ><label class='opts'  for='"+j+"'>"+opt2[j]+"</label><br/>";
 
 
             document.getElementById('question'+last_question).style.backgroundColor="#5f5f5f";

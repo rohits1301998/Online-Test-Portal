@@ -1,19 +1,12 @@
-#pick-test{
-  width: 70%;
-  margin: 0 auto;
-}
-#pick-test button{
-  margin-left: 25%;
-  word-break: break-all;
-}
-label{
-  color: #f0b81f;
-}
+ #select_test{
+        display:none;
+      }
+      
 
-#select_test{
-	display:none;
-}
+ .hlogin{
+        display:none;  /*for hiding login and signin button */
+      }
 
-a[title="Hosted on free web hosting 000webhost.com. Host your own website for FREE."]{
-	display:none;
+#give-test{
+	display: none;
 }

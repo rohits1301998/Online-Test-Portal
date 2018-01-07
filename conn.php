@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect('localhost','root','','online_test') or die('error');
+$con=mysqli_connect('fdb6.awardspace.net','2515330_onlinetest','Killer514','2515330_onlinetest') or die('error');
 // Usage 1:
 // echo password_hash('rohit', PASSWORD_DEFAULT)."\n";//bcrypt hashing
 

@@ -4,24 +4,35 @@ session_start();
 <!DOCTYPE html>
 <html>
   <head>
+  <title>Select Test</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/select-test.css">
-    <link rel="stylesheet" type="text/css" href="css/common.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" type="text/css" href="css/common.css">
+      <link rel="stylesheet" type="text/css" href="css/select-test.css">
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/give-test.css">
+     <link rel="stylesheet" type="text/css" href="css/common.css"> -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="js/getTests.js"></script>
+   
   </head>
   <body onpageshow="reset();">
+  <script type="text/javascript" src="js/materialize.min.js"></script>
     <?php
     include('conn.php');
-    
+    //print_r($_SESSION['test_status']);
 
-    if(!empty($_SESSION['exam_over'])){
     unset($_SESSION['exam_over']);
     unset($_SESSION['selected-ans']);
-  }
+    unset($_SESSION['uid1']);
+    unset($_SESSION['test_status']);
+  
     include('login.php');
     include('signup.php');
     include('header.php');
@@ -32,39 +43,40 @@ session_start();
     $tests=mysqli_query($con,"select username from utcet");
 
     ?>
-
-    <div id="pick-test">
+    <br>
+    <br>
+    <br>
+    <div id="pick-test" class="container">
       <form method="get" action="give-test.php">
-        <div class="form-group col-md-2">
-        <label for="join">joining Year</label>
-        <select required id="join" class="form-control" name="join">
+        <div class="input-field joining-year">
+        <select  id="join"  name="join">
           <option disabled selected value="0">Choose...</option>
           <?php for ($i=2001; $i <=date("Y") ; $i++) {
             echo "<option value=".$i.">".$i."</option>";
           } ?>
         </select>
+        <label>joining Year</label>
         </div>
-        <div class="form-group col-md-3">
-        <label for="department">Department</label>
-        <select required id="department" class="form-control" name="department">
+        <div class="input-field ">
+        <select  id="department"  name="department">
           <option disabled selected value="0">Choose...</option>
           <option value="cmpn">CMPN</option>
           <option value="it">IT</option>
           <option value="etrx">ETRX</option>
           <option value="extc">EXTC</option>
         </select>
+        <label for="department">Department</label>
         </div>
-        <div class="form-group col-md-2">
-        <label for="divison">Divison</label>
-        <select required id="divison" class="form-control" name="divison">
+        <div class="input-field ">
+        <select  id="divison"  name="divison">
           <option disabled selected value="0">Choose...</option>
           <option value="a">A</option>
           <option value="b">B</option>
         </select>
+        <label for="divison">Divison</label>
         </div>
-        <div class="form-group col-md-2">
-        <label for="roll_no">Roll no.</label>
-        <select required id="roll_no" class="form-control" name="roll_no">
+        <div class="input-field ">
+        <select  id="roll_no"  name="roll_no">
           <option disabled selected value="0">Choose...</option>
           <?php
           for ($i=1; $i < 91; $i++) {
@@ -72,19 +84,17 @@ session_start();
           }
           ?>
         </select>
+        <label for="roll_no">Roll no.</label>
         </div>
-        <div class="form-group col-md-2">
-        <label for="pass">Passing year</label>
-        <select required id="pass" class="form-control" name="pass" >
+        <div class="input-field ">
+        <select  id="pass"  name="pass" >
           <option disabled selected value="0">Choose...</option>
-          <?php for ($i=2004; $i <=date("Y")+4 ; $i++) {
-            echo "<option value=".$i.">".$i."</option>";
-          } ?>
+          
         </select>
+        <label for="pass">Passing year</label>
         </div>
-      <div class="form-group">
-      <label>Select professor:</label>
-      <select required class="form-control" name='professor' onchange="getTests(this.value)" id="select-professor">
+      <div class="input-field " id="select-prof-div">
+      <select   name='professor'  id="select-professor">
       <option disabled selected value="0">Select a Professor</option>
       <?php
       while($row = mysqli_fetch_assoc($tests))
@@ -92,6 +102,8 @@ session_start();
       ?>
 
       </select>
+      <label>Select professor:</label>
+      </div>
            <div class="bubblingG" id="loading">
   <span id="bubblingG_1">
   </span>
@@ -100,15 +112,19 @@ session_start();
   <span id="bubblingG_3">
   </span>
    </div>
-      <div id="select_test">
-      <label>Select test:</label>
-      <select required class="form-control" name='test' id="list-test"><!--test is form no. of that professor -->
+      <div id="select_test" class="input-field" onchange="showPassword()">
+      <select   name='test' id="test-list" ><!--test is form no. of that professor -->
 
       </select>
+      <label>Select test:</label>
       </div>
-    </div>
-      <button type="submit" class="btn btns">Give Test</button>
+      <button type="submit" class="btn btns" id="give-test">Give Test</button>
       </form>
+
+<div id="test-verification" class="input-field">
+  
+
+</div>
 
 
     </div>

@@ -1,22 +1,13 @@
+.container{
+        text-align:center;
+        width:80%;
+  }
 
 
-html,body{
-	height:100%;
-	width:100%;
-	background: #000000;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #434343, #000000);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+.btn{
+  font-size: 1.8vh;
+  background-color: #ff8a65;
 }
-
-
-
-
-.active{
-	background-color: #f0b81f !important;
-
-}
-
 
 .bubblingG {
   text-align: center;
@@ -158,3 +149,35 @@ a[title="Hosted on free web hosting 000webhost.com. Host your own website for FR
   display:none;
 }
 
+#logo{
+ color: #CEF0D4; font-family: 'Rouge Script', cursive; font-size:6vh; font-weight: normal; line-height: 48px; margin: 0 0 50px; text-align: center; text-shadow: 1px 1px 2px #082b34;
+}
+
+.carousel.carousel-slider .carousel-item p{
+ color: #7a7c7f; font-family: "Great Vibes", cursive; font-size: 4.5vh; font-weight: normal;margin-top:0px; text-align: center; text-shadow: 0 1px 1px #fff;
+padding-left: 0px;
+}
+
+.carousel.carousel-slider .carousel-item span{
+  display:inline-block;
+ color: #7a7c7f; font-family: "Great Vibes", cursive; font-size: 2.5vh; font-weight: normal;text-shadow: 0 1px 1px #fff;
+margin-left:10%;
+
+}
+
+
+.carousel .carousel-item{
+text-align: left;
+
+}
+.carousel{
+  height:65vh;
+  overflow-y: auto;
+}
+
+
+
+
+#welcome-box{
+  margin-bottom:3%;
+}   

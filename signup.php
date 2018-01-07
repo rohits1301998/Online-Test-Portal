@@ -23,17 +23,17 @@ endif;
 }
 ?>
   <!-- Modal -->
-  <div class="modal fade" id="signup" role="dialog" onload="clearInputs()">
-    <div class="modal-dialog">
+  <!-- <div class="modal fade" id="signup" role="dialog" onload="clearInputs()">
+    <div class="modal-dialog"> -->
     
       <!-- Modal content-->
-      <div class="modal-content">
+      <!-- <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Sign Up</h4>
         </div>
-        <div class="modal-body">
-        <form action="" method="post">
+        <div class="modal-body"> -->
+        <!-- <form action="" method="post"> -->
   <!--<div class="form-group">
     <label for="fname">First Name:</label>
     <input type="text" class="form-control" name="fname">
@@ -46,7 +46,7 @@ endif;
     <label for="email">Email address:</label>
     <input type="email" class="form-control" name="email">
   </div>  -->
-   <div class="form-group">
+   <!-- <div class="form-group">
     <label for="username">Username</label>
     <input type="text" class="form-control" name="susername">
   </div>
@@ -62,6 +62,40 @@ endif;
         </div>
       </div>
       
+    </div>
+  </div> -->
+
+
+  <!-- Modal Structure -->
+  <div id="signup" class="modal"  onpageshow="clearInputs()">
+    <div class="modal-content">
+      <h4>SignUp</h4>
+      <form action="" method="post">
+  <!--<div class="form-group">
+    <label for="fname">First Name:</label>
+    <input type="text" class="form-control" name="fname">
+  </div>
+  <div class="form-group">
+    <label for="lname">Last Name:</label>
+    <input type="text" class="form-control" name="lname">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" name="email">
+  </div>  -->
+   <div class="input-field">
+    <input type="text" class="validate" name="susername">
+    <label for="username">Username</label>
+  </div>
+  <div class="input-field">
+    <input type="password" class="validate" name="spwd">
+    <label for="pwd">Password:</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat"  onclick="clearInputs();return false;">Close</a>
     </div>
   </div>
 
